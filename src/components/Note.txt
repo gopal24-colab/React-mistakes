@@ -1,0 +1,43 @@
+Short circuit array rendering
+
+[1]. when its value is not 0 or undefined or null then its been exciuted
+ {
+    arr.length && arr.map(ele=>{
+        return <h1>{ele}</h1>
+    })
+ }
+ this is a big mistake to generate a bug in our code base
+ because it the array length is 0 then the doesn't return anything except zero
+ so when we use sort circuit useing && then we also need to check the array length is equal to the zero
+
+ solution : -> for array
+ {
+    arr.length !== 0 && arr.map(ele=>{
+        return <h1>{ele}</h1>
+    })
+ }
+
+solution for objects : ->
+const user = {
+    name : "Gopal",
+}
+{
+    user != null && return <h1>{user.name}</h1>
+}
+
+ [2]. react does not print 
+  * true
+  * false
+  * null   
+  * undefined
+
+
+[3].
+
+React State change mistakes :->
+
+* state is immutabel. It should not be changed;
+* We can't push or remove any elements from any state array
+* to avoid this problem we can use the array distructured operation to distructured the state and add value to corrsoponding positions
+* if to state changes happens sumultaneously  then first state if overridden by the next state;
+* to do this we need to use the concept of previous state management by using functions
